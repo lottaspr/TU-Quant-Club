@@ -1155,28 +1155,6 @@ button:focus-visible {
   }
 }
 
-.mc {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--r-2xl);
-  padding: 24px;
-  margin-top: 48px;
-}
-
-.mc svg {
-  width: 100%;
-  height: auto;
-}
-
-.mc__meta {
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
-  margin-top: 16px;
-  font-size: 13px;
-  color: var(--muted);
-}
-
 /* Team */
 .team {
   display: grid;
@@ -1508,16 +1486,6 @@ button:focus-visible {
 }
 
 /* Interactive playgrounds */
-.play-grid {
-  display: grid;
-  gap: 48px;
-}
-
-.play__title {
-  font-size: 22px;
-  margin-bottom: 16px;
-}
-
 .play {
   border: 1px solid var(--line);
   border-radius: var(--r-2xl);
@@ -1529,10 +1497,6 @@ button:focus-visible {
   position: relative;
   touch-action: pan-y;
   cursor: crosshair;
-}
-
-.play__stage--field {
-  height: clamp(320px, 42vw, 520px);
 }
 
 .play__stage--mc {
@@ -1575,32 +1539,6 @@ button:focus-visible {
   min-width: 3ch;
 }
 
-.play__pill {
-  font-style: normal;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 4px 10px;
-  border-radius: 999px;
-  transition: background 0.4s, color 0.4s;
-}
-
-.play__pill--calm {
-  background: rgba(46, 90, 228, 0.2);
-  color: #8ea6ff;
-}
-
-.play__pill--nervous {
-  background: rgba(99, 206, 89, 0.18);
-  color: var(--green);
-}
-
-.play__pill--crisis {
-  background: rgba(255, 227, 35, 0.18);
-  color: var(--yellow);
-}
-
 /* Legal pages */
 .legal {
   padding-top: 160px;
@@ -1636,4 +1574,12 @@ button:focus-visible {
   color: var(--yellow);
   padding: 1px 6px;
   border-radius: 4px;
+}
+
+.about-lab {
+  margin-top: 48px;
+}
+
+.about-lab__label {
+  margin-bottom: 16px;
 }

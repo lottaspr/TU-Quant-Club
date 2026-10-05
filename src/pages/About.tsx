@@ -1,5 +1,5 @@
 import { Lines, Reveal } from '../components/Reveal'
-import { MonteCarlo } from '../components/Charts'
+import { MonteCarloLab } from '../components/Play'
 import { ExpandingCta, PageHero, Stats } from '../components/Blocks'
 import { Statement } from '../components/Scroll'
 import { CLUB } from '../content'
@@ -31,7 +31,12 @@ export default function About() {
                 Black–Scholes model, and it hasn’t stopped since.
               </p>
             </Reveal>
-            <MonteCarlo />
+            <Reveal className="about-lab" delay={120}>
+              <div className="about-lab__label">
+                <span className="eyebrow">Monte Carlo · PCA · Black–Scholes</span>
+              </div>
+              <MonteCarloLab />
+            </Reveal>
           </div>
         </div>
       </section>

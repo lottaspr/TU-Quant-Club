@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { prefersReducedMotion, useInView } from '../hooks/scroll'
+import { prefersReducedMotion } from '../hooks/scroll'
 import { viridis } from '../content'
 
 const gauss = (x: number, mu: number, s: number) => Math.exp(-((x - mu) ** 2) / (2 * s * s))
@@ -141,47 +141,5 @@ export function PriceLine() {
         vectorEffect="non-scaling-stroke"
       />
     </svg>
-  )
-}
-
-/** Monte Carlo paths of a geometric Brownian motion, drawn on scroll. */
-export function MonteCarlo({ paths = 36 }: { paths?: number }) {
-  const [ref, inView] = useInView<HTMLDivElement>(0.25)
-  const data = useMemo(() => {
-    const walks = Array.from({ length: paths }, (_, k) => seededWalk(7 + k * 131, 80, 0.02, 0.16))
-    const finals = walks.map((w) => w[w.length - 1])
-    const lo = Math.min(...walks.flat())
-    const hi = Math.max(...walks.flat())
-    const fmin = Math.min(...finals)
-    const fmax = Math.max(...finals)
-    return walks.map((w) => ({
-      d: w
-        .map((v, i) => `${i ? 'L' : 'M'}${((i / (w.length - 1)) * 600).toFixed(1)},${(220 - ((v - lo) / (hi - lo)) * 200).toFixed(1)}`)
-        .join(' '),
-      c: viridis(0.15 + ((w[w.length - 1] - fmin) / (fmax - fmin)) * 0.85),
-    }))
-  }, [paths])
-  return (
-    <div ref={ref} className={`mc ${inView ? 'is-in' : ''}`}>
-      <svg viewBox="0 0 600 230" aria-hidden="true">
-        {data.map((p, i) => (
-          <path
-            key={i}
-            className="draw"
-            pathLength={1}
-            d={p.d}
-            fill="none"
-            stroke={p.c}
-            strokeWidth="1.2"
-            strokeOpacity="0.85"
-            style={{ transitionDelay: `${i * 35}ms` }}
-          />
-        ))}
-      </svg>
-      <div className="mc__meta">
-        <span>Monte Carlo · PCA · Black–Scholes</span>
-        <span>{paths} simulated paths</span>
-      </div>
-    </div>
   )
 }

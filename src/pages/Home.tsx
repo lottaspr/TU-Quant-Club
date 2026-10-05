@@ -6,7 +6,6 @@ import { BellBars, Heatmap, LiveDistribution, PriceLine } from '../components/Ch
 import { ExpandingCta, Stats } from '../components/Blocks'
 import { useInView, useScrollProgress } from '../hooks/scroll'
 import { Orb } from '../components/Orb'
-import { MonteCarloLab, VolField } from '../components/Play'
 import type { OrbState } from 'thinking-orbs/engine'
 import { COHORT } from '../content'
 
@@ -149,27 +148,6 @@ export default function Home() {
             <Tile title="Price action" text="Volatility is data, not drama." delay={240}>
               <PriceLine />
             </Tile>
-          </div>
-        </div>
-      </section>
-
-      <section className="section" style={{ paddingTop: 0 }}>
-        <div className="container">
-          <div className="head">
-            <Lines lines={['Try it yourself']} className="h2" />
-            <Reveal as="p" className="lead" delay={150}>
-              Two small models to play with. Push the market around and watch how it reacts.
-            </Reveal>
-          </div>
-          <div className="play-grid">
-            <Reveal>
-              <h3 className="h3 play__title">Volatility surface</h3>
-              <VolField />
-            </Reveal>
-            <Reveal delay={120}>
-              <h3 className="h3 play__title">Monte Carlo lab</h3>
-              <MonteCarloLab />
-            </Reveal>
           </div>
         </div>
       </section>
