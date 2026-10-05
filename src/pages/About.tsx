@@ -37,6 +37,7 @@ export default function About() {
       <Statement
         text="The next generation of quants will come from students who engage with markets creatively and critically. We’re building the room where that happens."
         highlight={['creatively', 'critically.']}
+        orb="connecting"
       />
 
       <section className="section">

@@ -3,12 +3,14 @@ import { Lines, Reveal } from '../components/Reveal'
 import { ExpandingCta, PageHero } from '../components/Blocks'
 import { useScrollProgress, clamp } from '../hooks/scroll'
 import { APPLY_URL, CLUB, EMAIL } from '../content'
+import { Orb } from '../components/Orb'
+import type { OrbState } from 'thinking-orbs/engine'
 
 const STEPS = [
-  { title: 'Apply', when: 'Oct 1 – 28', text: 'Submit a short form. CV optional, curiosity required.' },
-  { title: 'Interview', when: 'Oct 30 – Nov 1', text: 'A relaxed 20-minute conversation with two board members.' },
-  { title: 'Decision', when: 'By Nov 15', text: 'We get back to everyone within a week of their interview.' },
-  { title: 'Onboard', when: 'Late November', text: 'Meet your cohort and pick your first workshop or research track.' },
+  { orb: 'composing' as OrbState, title: 'Apply', when: 'Oct 1 – 28', text: 'Submit a short form. CV optional, curiosity required.' },
+  { orb: 'listening' as OrbState, title: 'Interview', when: 'Oct 30 – Nov 1', text: 'A relaxed 20-minute conversation with two board members.' },
+  { orb: 'solving' as OrbState, title: 'Decision', when: 'By Nov 15', text: 'We get back to everyone within a week of their interview.' },
+  { orb: 'connecting' as OrbState, title: 'Onboard', when: 'Late November', text: 'Meet your cohort and pick your first workshop or research track.' },
 ]
 
 const FAQ = [
@@ -66,7 +68,10 @@ export default function Apply() {
             <div className="timeline__rail"><i /></div>
             {STEPS.map((s, i) => (
               <Reveal key={s.title} className={`step ${p >= i / STEPS.length + 0.02 ? 'on' : ''}`} delay={i * 120}>
-                <div className="step__num">0{i + 1}</div>
+                <div className="step__head">
+                  <span className="step__num">0{i + 1}</span>
+                  <Orb state={s.orb} size={64} />
+                </div>
                 <div>
                   <h3 className="h3" style={{ marginBottom: 8 }}>{s.title}</h3>
                   <p className="muted">{s.text}</p>

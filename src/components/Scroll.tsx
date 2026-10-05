@@ -1,8 +1,10 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react'
 import { clamp, useInView, useScrollProgress } from '../hooks/scroll'
+import { Orb } from './Orb'
+import type { OrbState } from 'thinking-orbs/engine'
 
 /** Pinned paragraph whose words light up as you scroll through it. */
-export function Statement({ text, highlight = [] }: { text: string; highlight?: string[] }) {
+export function Statement({ text, highlight = [], orb = 'searching' }: { text: string; highlight?: string[]; orb?: OrbState }) {
   const ref = useRef<HTMLElement>(null)
   const words = text.split(' ')
   const [lit, setLit] = useState(0)
@@ -10,7 +12,7 @@ export function Statement({ text, highlight = [] }: { text: string; highlight?: 
   return (
     <section ref={ref} className="statement">
       <div className="statement__sticky">
-        <div className="container">
+        <div className="container statement__grid">
           <p className="statement__text">
             {words.map((w, i) => (
               <span
@@ -21,6 +23,9 @@ export function Statement({ text, highlight = [] }: { text: string; highlight?: 
               </span>
             ))}
           </p>
+          <div className="statement__orb">
+            <Orb state={orb} size={520} />
+          </div>
         </div>
       </div>
     </section>

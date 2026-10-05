@@ -5,6 +5,8 @@ import { HorizontalScroll, Statement, Ticker } from '../components/Scroll'
 import { BellBars, Heatmap, LiveDistribution, PriceLine } from '../components/Charts'
 import { ExpandingCta, Stats } from '../components/Blocks'
 import { useInView, useScrollProgress } from '../hooks/scroll'
+import { Orb } from '../components/Orb'
+import type { OrbState } from 'thinking-orbs/engine'
 import { COHORT } from '../content'
 
 const OFFERS = [
@@ -12,21 +14,29 @@ const OFFERS = [
     title: 'Workshops & Lectures',
     text: 'Explore fundamentals and advanced topics in trading and quantitative research, from practitioners and peers.',
     c: '#2e5ae4',
+    orb: 'listening' as OrbState,
+    tint: undefined,
   },
   {
     title: 'Quantitative Research',
     text: 'Work in small teams on original research: backtests, risk models, and market microstructure studies.',
     c: '#1f9e89',
+    orb: 'searching' as OrbState,
+    tint: '#35b779',
   },
   {
     title: 'Social Events',
     text: 'Trips, case competitions, and socials throughout the semester. We work hard, and we play hard.',
     c: '#fde725',
+    orb: 'connecting' as OrbState,
+    tint: '#fde725',
   },
   {
     title: 'Industry Network',
     text: 'Talks, office visits and recruiting nights with our partner firms, so you see how it is done for real.',
     c: '#442572',
+    orb: 'weaving' as OrbState,
+    tint: '#2e5ae4',
   },
 ]
 
@@ -110,7 +120,10 @@ export default function Home() {
         {OFFERS.map((o, i) => (
           <article className="hcard" key={o.title}>
             <div className="hcard__glow" style={{ background: o.c }} />
-            <div className="hcard__num">0{i + 1}</div>
+            <div className="hcard__top">
+              <span className="hcard__num">0{i + 1}</span>
+              <Orb state={o.orb} size={240} color={o.tint} className="hcard__orb" />
+            </div>
             <div>
               <h3 className="h3">{o.title}</h3>
               <p className="muted" style={{ maxWidth: '38ch' }}>{o.text}</p>

@@ -23,3 +23,7 @@ Routing uses hash URLs (`/#/about`), so the site works on any static host.
 ## Deploy
 
 Pushes to `main` deploy to GitHub Pages via `.github/workflows/deploy.yml`. Turn it on once under Settings → Pages → Source: GitHub Actions.
+
+## Credits
+
+The dotted orb animations use the [thinking-orbs](https://github.com/rareformlabs/thinking-orbs) engine (MIT © Jakub Antalik), drawn at large sizes by `src/components/Orb.tsx`.
