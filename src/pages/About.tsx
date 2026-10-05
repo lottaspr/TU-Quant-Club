@@ -3,6 +3,7 @@ import { MonteCarlo } from '../components/Charts'
 import { ExpandingCta, PageHero, Stats } from '../components/Blocks'
 import { Statement } from '../components/Scroll'
 import { CLUB } from '../content'
+import { Logo } from '../components/Logo'
 
 export default function About() {
   return (
@@ -10,7 +11,8 @@ export default function About() {
       <PageHero
         eyebrow="About us"
         title={['Where curiosity', 'meets quantitative', 'finance.']}
-        lead={`${CLUB} introduces STEM students to the practical side of mathematics in financial markets.`}
+        lead={`${CLUB} is a student society that introduces STEM students to the practical applications of mathematics in financial markets through an engaging series of workshops, lectures, and group cases.`}
+        aside={<Logo size={300} className="hero__logo" />}
       />
 
       <section className="section">
@@ -35,8 +37,8 @@ export default function About() {
       </section>
 
       <Statement
-        text="The next generation of quants will come from students who engage with markets creatively and critically. We’re building the room where that happens."
-        highlight={['creatively', 'critically.']}
+        text="We firmly believe that the next generation of Quants, those who revolutionize quantitative finance, emerges from the brilliance of students who creatively and critically engage with financial markets."
+        highlight={['creatively', 'critically']}
         orb="connecting"
       />
 
@@ -47,9 +49,9 @@ export default function About() {
           </div>
           <Reveal className="split__body">
             <p>
-              Through workshops, lectures and group cases, we turn abstract mathematics into practical tools. We go
-              beyond coursework and encourage members to take on research that bridges science and finance, and to
-              publish what they find.
+              Our mission extends beyond academic excellence as we aim to empower our members to excel in all fields.
+              To foster their growth, we actively encourage them to delve into cutting-edge research topics that
+              bridge the worlds of science and finance, inspiring them to contribute thought-provoking articles.
             </p>
           </Reveal>
         </div>
@@ -62,9 +64,9 @@ export default function About() {
           </div>
           <Reveal className="split__body">
             <p>
-              We believe curiosity and collaboration build better quants than credentials do. We keep the environment
-              rigorous, open and intellectually generous, so every member pushes the boundaries of what they
-              understand.
+              We foster curiosity and innovation by nurturing a collaborative and intellectually stimulating
+              environment. Our collective pursuit of knowledge and transformative impact propels us towards uncharted
+              horizons, driving us to push the boundaries of understanding.
             </p>
           </Reveal>
         </div>
