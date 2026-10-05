@@ -22,7 +22,7 @@ Routing uses hash URLs (`/#/about`), so the site works on any static host.
 
 ## Deploy
 
-Pushes to `main` deploy to GitHub Pages via `.github/workflows/deploy.yml`. Turn it on once under Settings → Pages → Source: GitHub Actions.
+Deploying is manual for now: turn on Settings → Pages → Source: GitHub Actions, then run the "Deploy to GitHub Pages" workflow from the Actions tab. To deploy on every push, add a `push` trigger in `.github/workflows/deploy.yml`.
 
 ## Credits
 
