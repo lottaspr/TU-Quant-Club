@@ -1064,7 +1064,7 @@ button:focus-visible {
 
 .footer__top {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
   gap: 48px;
 }
 
@@ -1095,11 +1095,10 @@ button:focus-visible {
   overflow: visible;
 }
 
-.footer__word text {
-  font-family: var(--font);
-  font-weight: 700;
-  font-size: 160px;
-  letter-spacing: -0.06em;
+.footer__word svg {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .footer__bottom {
@@ -1600,4 +1599,41 @@ button:focus-visible {
 .play__pill--crisis {
   background: rgba(255, 227, 35, 0.18);
   color: var(--yellow);
+}
+
+/* Legal pages */
+.legal {
+  padding-top: 160px;
+  padding-bottom: 120px;
+  max-width: calc(760px + var(--gutter) * 2);
+}
+
+.legal__title {
+  margin: 20px 0 12px;
+}
+
+.legal__updated {
+  font-size: 14px;
+}
+
+.legal__body {
+  margin-top: 56px;
+}
+
+.legal__body h2 {
+  font-size: 20px;
+  letter-spacing: -0.02em;
+  margin: 40px 0 10px;
+}
+
+.legal__body p {
+  color: var(--muted);
+  max-width: 65ch;
+}
+
+.fill {
+  background: rgba(255, 227, 35, 0.14);
+  color: var(--yellow);
+  padding: 1px 6px;
+  border-radius: 4px;
 }

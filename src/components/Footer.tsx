@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { Logo } from './Logo'
 import { CLUB, EMAIL, INSTAGRAM_URL, LINKEDIN_URL, TAGLINE } from '../content'
+import wordmark from '../assets/wordmark-gradient.svg?raw'
 
 export function Footer() {
   return (
@@ -29,18 +30,14 @@ export function Footer() {
             <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer">Instagram</a>
             <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
           </div>
+          <div className="footer__col">
+            <h4>Legal</h4>
+            <Link to="/imprint">Imprint</Link>
+            <Link to="/privacy">Data Privacy</Link>
+            <Link to="/disclaimer">Disclaimer</Link>
+          </div>
         </div>
-        <svg className="footer__word" viewBox="0 0 1000 150" aria-hidden="true">
-          <defs>
-            <linearGradient id="fw" x1="0" x2="0" y1="0" y2="1">
-              <stop offset="0" stopColor="#fff" />
-              <stop offset="1" stopColor="#fff" stopOpacity="0.06" />
-            </linearGradient>
-          </defs>
-          <text x="0" y="122" textLength="1000" lengthAdjust="spacingAndGlyphs" fill="url(#fw)">
-            {CLUB}
-          </text>
-        </svg>
+        <div className="footer__word" role="img" aria-label={CLUB} dangerouslySetInnerHTML={{ __html: wordmark }} />
         <div className="footer__bottom">
           <span>© {CLUB} {new Date().getFullYear()}</span>
           <span>Munich, Germany</span>

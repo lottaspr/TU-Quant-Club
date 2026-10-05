@@ -7,6 +7,7 @@ import About from './pages/About'
 import Team from './pages/Team'
 import Events from './pages/Events'
 import Apply from './pages/Apply'
+import { Disclaimer, Imprint, Privacy } from './pages/Legal'
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -29,6 +30,9 @@ export default function App() {
           <Route path="/team" element={<Team />} />
           <Route path="/events" element={<Events />} />
           <Route path="/apply" element={<Apply />} />
+          <Route path="/imprint" element={<Imprint />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/disclaimer" element={<Disclaimer />} />
           <Route path="*" element={<Home />} />
         </Routes>
       </main>
