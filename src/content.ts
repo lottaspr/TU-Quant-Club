@@ -46,14 +46,14 @@ export const EVENTS = [
 ]
 
 export const TEAM = [
-  { role: 'President', c: '#2e5ae4' },
-  { role: 'VP Research', c: '#1f9e89' },
-  { role: 'VP Events', c: '#442572' },
-  { role: 'Head of Partnerships', c: '#35b779' },
-  { role: 'Treasurer', c: '#2e48c8' },
-  { role: 'Workshops Lead', c: '#6dcd59' },
-  { role: 'Research Lead', c: '#31688e' },
-  { role: 'Social Lead', c: '#fde725' },
+  { role: 'President', about: 'Leads the board, sets the club\'s direction and keeps every cohort moving.', c: '#2e5ae4' },
+  { role: 'VP Research', about: 'Runs the research track and edits the articles members publish.', c: '#1f9e89' },
+  { role: 'VP Events', about: 'Plans the calendar: workshops, lectures, case nights and trips.', c: '#442572' },
+  { role: 'Head of Partnerships', about: 'Our link to trading firms, banks and sponsors.', c: '#35b779' },
+  { role: 'Treasurer', about: 'Owns the budget, sponsorship funds and reimbursements.', c: '#2e48c8' },
+  { role: 'Workshops Lead', about: 'Builds the hands-on sessions, from Python basics to options pricing.', c: '#6dcd59' },
+  { role: 'Research Lead', about: 'Mentors research groups from first idea to finished write-up.', c: '#31688e' },
+  { role: 'Social Lead', about: 'Keeps the community together outside the lecture hall.', c: '#fde725' },
 ]
 
 export const VIRIDIS = [
