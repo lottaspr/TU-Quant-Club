@@ -48,11 +48,13 @@ function useCanvasLoop(
     let raf = 0
     let visible = false
     let last = performance.now()
+    // Capped at 30 fps: smooth enough for the simulation and keeps page scrolling responsive.
     const loop = (now: number) => {
+      if (visible) raf = requestAnimationFrame(loop)
+      if (now - last < 30) return
       const dt = Math.min(0.05, (now - last) / 1000)
       last = now
       frameRef.current(ctx, w, h, dt)
-      if (visible) raf = requestAnimationFrame(loop)
     }
     const io = new IntersectionObserver(([e]) => {
       visible = e.isIntersecting
@@ -226,7 +228,7 @@ export function MonteCarloLab() {
       ctx.stroke()
     }
 
-    if (++tick.current % 8 === 0) {
+    if (++tick.current % 4 === 0) {
       setRead({
         mu: pr.mu,
         sigma: pr.sigma,

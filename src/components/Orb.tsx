@@ -31,7 +31,8 @@ export function Orb({ state, size, color, speed = 1, opts, className, label }: P
     if (!canvas) return
     const ctx = canvas.getContext('2d')
     if (!ctx) return
-    const dpr = Math.min(2, window.devicePixelRatio || 1)
+    // Big orbs are soft dots anyway; a lower backing resolution keeps each frame cheap.
+    const dpr = Math.min(size > 128 ? 1.5 : 2, window.devicePixelRatio || 1)
     canvas.width = Math.round(size * dpr)
     canvas.height = Math.round(size * dpr)
 
@@ -57,11 +58,13 @@ export function Orb({ state, size, color, speed = 1, opts, className, label }: P
     let visible = false
     let last = performance.now()
     let t = Math.random() * 10
+    // The orbs drift slowly, so 30 fps looks the same and leaves the frame budget to scrolling.
     const loop = (now: number) => {
+      if (visible) raf = requestAnimationFrame(loop)
+      if (now - last < 30) return
       t += ((now - last) / 1000) * rate
       last = now
       draw(t)
-      if (visible) raf = requestAnimationFrame(loop)
     }
     const io = new IntersectionObserver(([e]) => {
       visible = e.isIntersecting
