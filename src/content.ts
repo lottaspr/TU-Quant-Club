@@ -1,6 +1,5 @@
 export const CLUB = 'TU Quant Club'
 export const TAGLINE = 'Quantitative Trading Club · Munich'
-export const COHORT = 'Cohort 07'
 export const EMAIL = 'hello@quantum-club.de'
 // TODO: replace with the real application form link
 export const APPLY_URL = '#/apply'
@@ -11,7 +10,6 @@ export const STATS = [
   { value: 2019, label: 'Founded', plain: true },
   { value: 40, suffix: '+', label: 'Active members' },
   { value: 3, label: 'Industry partners' },
-  { value: 7, pad: 2, label: 'Cohorts run' },
 ]
 
 export const EVENTS = [
@@ -46,7 +44,7 @@ export const EVENTS = [
 ]
 
 export const TEAM = [
-  { role: 'President', about: 'Leads the board, sets the club\'s direction and keeps every cohort moving.', c: '#2e5ae4' },
+  { role: 'President', about: 'Leads the board, sets the club\'s direction and keeps every semester moving.', c: '#2e5ae4' },
   { role: 'VP Research', about: 'Runs the research track and edits the articles members publish.', c: '#1f9e89' },
   { role: 'VP Events', about: 'Plans the calendar: workshops, lectures, case nights and trips.', c: '#442572' },
   { role: 'Head of Partnerships', about: 'Our link to trading firms, banks and sponsors.', c: '#35b779' },

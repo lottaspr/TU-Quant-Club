@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { Lines, Reveal } from './Reveal'
 import { Counter } from './Scroll'
 import { clamp, useScrollProgress } from '../hooks/scroll'
-import { STATS } from '../content'
+import { CLUB, EMAIL, STATS } from '../content'
 import { Logo } from './Logo'
 
 export function Stats() {
@@ -13,7 +13,7 @@ export function Stats() {
         {STATS.map((s) => (
           <div className="stat" key={s.label}>
             <div className="stat__num">
-              <Counter to={s.value} pad={s.pad} suffix={s.suffix} plain={s.plain} />
+              <Counter to={s.value} suffix={s.suffix} plain={s.plain} />
             </div>
             <div className="stat__label">{s.label}</div>
           </div>
@@ -24,7 +24,20 @@ export function Stats() {
 }
 
 /** Gradient panel that grows from an inset card to full-bleed as it scrolls in. */
-export function ExpandingCta({ title, sub, cta = 'Apply now', to = '/apply' }: { title: string[]; sub: string; cta?: string; to?: string }) {
+export function ExpandingCta({
+  title,
+  sub,
+  cta = 'Apply now',
+  to = '/apply',
+  partner = false,
+}: {
+  title: string[]
+  sub: string
+  cta?: string
+  to?: string
+  /** Adds a "Become a partner" link under the main button. */
+  partner?: boolean
+}) {
   const ref = useRef<HTMLDivElement>(null)
   useScrollProgress(ref, 'enter', (p) => ref.current?.style.setProperty('--p', clamp((p - 0.15) / 0.65).toFixed(4)))
   return (
@@ -34,7 +47,6 @@ export function ExpandingCta({ title, sub, cta = 'Apply now', to = '/apply' }: {
         <Reveal className="cta__logo">
           <Logo size={72} mono />
         </Reveal>
-        <span className="eyebrow" style={{ color: '#fff', position: 'relative' }}>Cohort 07</span>
         <Lines lines={title} className="h1" />
         <Reveal as="p" className="lead" delay={200} style={{ color: 'rgba(255,255,255,.8)', position: 'relative' }}>
           {sub}
@@ -44,6 +56,14 @@ export function ExpandingCta({ title, sub, cta = 'Apply now', to = '/apply' }: {
             {cta} <span className="arrow">→</span>
           </Link>
         </Reveal>
+        {partner && (
+          <Reveal delay={400} className="cta__partner">
+            <span>Representing a firm?</span>
+            <a href={`mailto:${EMAIL}?subject=${encodeURIComponent('Partnership with ' + CLUB)}`} className="btn btn--ghost">
+              Become a partner <span className="arrow">→</span>
+            </a>
+          </Reveal>
+        )}
       </div>
     </section>
   )

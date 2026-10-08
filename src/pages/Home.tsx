@@ -7,7 +7,6 @@ import { ExpandingCta, Stats } from '../components/Blocks'
 import { useInView, useScrollProgress } from '../hooks/scroll'
 import { Orb } from '../components/Orb'
 import type { OrbState } from 'thinking-orbs/engine'
-import { COHORT } from '../content'
 
 const OFFERS = [
   {
@@ -80,7 +79,7 @@ export default function Home() {
       <section ref={hero} className="hero">
         <div className="orb" />
         <div className="container hero__content">
-          <Reveal as="span" className="eyebrow">{COHORT} · Applications open</Reveal>
+          <Reveal as="span" className="eyebrow">Applications open</Reveal>
           <Lines as="h1" className="display" lines={['We bridge the gap', 'between STEM and', 'financial markets.']} base={100} />
           <div className="hero__top">
             <Reveal as="p" className="lead" delay={500}>
@@ -145,7 +144,7 @@ export default function Home() {
             <Tile title="Probability" text="Distributions, not predictions. We model what’s likely." delay={120}>
               <BellBars />
             </Tile>
-            <Tile title="Price action" text="Volatility is data, not drama." delay={240}>
+            <Tile title="Price action" text="Every price move carries information." delay={240}>
               <PriceLine />
             </Tile>
           </div>
@@ -171,7 +170,7 @@ export default function Home() {
       <Stats />
 
       <ExpandingCta
-        title={['Applications for', 'Cohort 07 are open.']}
+        title={['Applications', 'are open.']}
         sub="Oct 1 – 28 · No finance background required."
       />
     </div>

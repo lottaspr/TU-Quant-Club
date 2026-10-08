@@ -79,7 +79,9 @@ export default function About() {
 
       <Stats />
 
-      <ExpandingCta title={['Think like a quant.', 'Start here.']} sub="Applications for Cohort 07 are open until Oct 28." />
+      <ExpandingCta title={['Think like a quant.', 'Start here.']} sub="Applications are open until Oct 28."
+        partner
+      />
     </div>
   )
 }

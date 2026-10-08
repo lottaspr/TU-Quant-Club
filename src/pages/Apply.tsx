@@ -10,7 +10,7 @@ const STEPS = [
   { orb: 'composing' as OrbState, title: 'Apply', when: 'Oct 1 – 28', text: 'Submit a short form. CV optional, curiosity required.' },
   { orb: 'listening' as OrbState, title: 'Interview', when: 'Oct 30 – Nov 1', text: 'A relaxed 20-minute conversation with two board members.' },
   { orb: 'solving' as OrbState, title: 'Decision', when: 'By Nov 15', text: 'We get back to everyone within a week of their interview.' },
-  { orb: 'connecting' as OrbState, title: 'Onboard', when: 'Late November', text: 'Meet your cohort and pick your first workshop or research track.' },
+  { orb: 'connecting' as OrbState, title: 'Onboard', when: 'Late November', text: 'Meet the other new members and pick your first workshop or research track.' },
 ]
 
 const FAQ = [
@@ -47,7 +47,7 @@ export default function Apply() {
   return (
     <div className="page">
       <PageHero
-        eyebrow="Cohort 07"
+        eyebrow="Applications"
         title={['Apply to', `${CLUB}.`]}
         lead="Applications are open Oct 1 – 28. No finance background required, just genuine curiosity."
       >

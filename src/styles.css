@@ -146,9 +146,8 @@ p {
   content: '';
   width: 8px;
   height: 8px;
-  border-radius: 50%;
+  border-radius: 2px;
   background: var(--accent);
-  box-shadow: 0 0 12px var(--accent);
 }
 
 .tag {
@@ -954,7 +953,7 @@ button:focus-visible {
 /* Stats */
 .stats {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
@@ -986,14 +985,11 @@ button:focus-visible {
 
 @media (max-width: 760px) {
   .stats {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
   }
 
-  .stat:nth-child(3) {
+  .stat + .stat {
     border-left: 0;
-  }
-
-  .stat:nth-child(n + 3) {
     border-top: 1px solid var(--line);
   }
 }
@@ -1016,9 +1012,8 @@ button:focus-visible {
   padding: 96px var(--gutter);
   overflow: hidden;
   background:
-    radial-gradient(80% 60% at 20% 10%, rgba(68, 37, 114, 0.9), transparent 60%),
-    radial-gradient(70% 70% at 90% 90%, rgba(46, 90, 228, 0.9), transparent 70%),
-    linear-gradient(135deg, var(--purple), var(--blue));
+    radial-gradient(90% 70% at 50% 0%, rgba(46, 90, 228, 0.55), transparent 70%),
+    linear-gradient(180deg, #2e48c8 0%, #1a2470 30%, #120d2c 62%, #0a0612 100%);
   clip-path: inset(calc((1 - var(--p)) * 12%) calc((1 - var(--p)) * var(--gutter-x, 8%)) round calc((1 - var(--p)) * 48px));
 }
 
@@ -1051,6 +1046,16 @@ button:focus-visible {
 .cta .btn--primary {
   background: #fff;
   color: var(--bg);
+}
+
+.cta__partner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
 }
 
 .cta .btn--primary::after {

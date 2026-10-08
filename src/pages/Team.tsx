@@ -17,7 +17,7 @@ export default function Team() {
       <PageHero
         eyebrow="The team"
         title={['People behind', `${CLUB}.`]}
-        lead="A student-run board, re-elected every cohort."
+        lead="A student-run board, re-elected every year."
       />
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="container team">
@@ -54,7 +54,7 @@ export default function Team() {
           ))}
         </div>
       </section>
-      <ExpandingCta title={['Want a seat', 'at the table?']} sub="Every board member started as a new member. Join Cohort 07." />
+      <ExpandingCta title={['Want a seat', 'at the table?']} sub="Every board member started as a new member." />
     </div>
   )
 }
